@@ -19,6 +19,8 @@ namespace ImageMS.Services
         }
         public async Task<string> UploadImageAsync(IFormFile file, string folderName)
         {
+            // The parameter 'folderName' should be managed as a Constant in the FrontEnd
+
             // Validate if the Folder Name is Null or Empty
             if (string.IsNullOrWhiteSpace(folderName))
             {
