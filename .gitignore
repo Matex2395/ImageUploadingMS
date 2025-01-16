@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Credentials File
+micro-avenue-448013-n3-d28e830fd44e.json
