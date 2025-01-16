@@ -14,8 +14,7 @@ namespace ImageMS.Controllers
             _storageService = storageService;
         }
 
-        [HttpPost("{folderName}")]
-        [Route("UploadImage")] // Provides easier access to the Endpoint
+        [HttpPost("UploadImage/{folderName}")] // Provides easier access to the Endpoint
         public async Task<IActionResult> UploadImage(IFormFile file, string folderName)
         {
             if (file == null || file.Length == 0)
