@@ -13,6 +13,15 @@ builder.Services.AddSwaggerGen();
 // Add Google Cloud Service
 builder.Services.AddSingleton<IGoogleCloudStorageService, GoogleCloudStorageService>();
 
+// Enable Cors Policy to prevent execution blocking
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("NewPolicy", app =>
+    {
+        app.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
