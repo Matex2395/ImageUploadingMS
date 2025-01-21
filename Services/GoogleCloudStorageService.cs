@@ -32,10 +32,15 @@ namespace ImageMS.Services
             using var stream = file.OpenReadStream();
 
             // Upload the File to the Bucket with the specified path
-            await _storageClient.UploadObjectAsync(_bucketName, objectName, file.ContentType, stream);
+            await _storageClient.UploadObjectAsync(
+                    bucket: _bucketName,
+                    objectName: objectName,
+                    contentType: file.ContentType,
+                    source: stream,
+                    options: new UploadObjectOptions { PredefinedAcl = PredefinedObjectAcl.PublicRead });
 
             // Return the public URL of the file
-            return $"https=//storage.googleapis.com/{_bucketName}/{objectName}";
+            return $"https://storage.googleapis.com/{_bucketName}/{objectName}";
         }
     }
 }
