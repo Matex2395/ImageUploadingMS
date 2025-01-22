@@ -36,8 +36,7 @@ namespace ImageMS.Services
                     bucket: _bucketName,
                     objectName: objectName,
                     contentType: file.ContentType,
-                    source: stream,
-                    options: new UploadObjectOptions { PredefinedAcl = PredefinedObjectAcl.PublicRead });
+                    source: stream);
 
             // Return the public URL of the file
             return $"https://storage.googleapis.com/{_bucketName}/{objectName}";
